@@ -8,3 +8,71 @@ sair, digite "q".
 arquivo de texto com o nome ".gitignore" na pasta onde o git init foi feito. Neste arquivo, deve ser incluídos 
 os nomes dos arquivos a serem ignorados. Se quiser ignorar toda uma pasta, informe no arquivo o nome da pasta
 seguido da barra(/), exemplo: "pasta-teste-git-ignore/".
+
+git log --pretty="format:%H"  => Gera o log com parâmetros de formatação, como é o exemplo do "%H", que mostra o 
+"commit hash". Outros parâmetros podem ser adicionados, como o "%an" que trás o autor do commit, o "%s" que traz 
+o nome do commit e outros (git log --pretty="format:%H %an %s"). Documentação: https://devhints.io/git-log-format
+
+git init --bare => Cria um repositório puro, que só contém as alterações dos arquivos e não a cópia deles. 
+Esse repositório pode ser usado como um repositório "remote", como um servidor git", mesmo estando localmente
+na máquina. (Obs.: Pode ser acessado por outra máquinas, desde que configurado em rede para isso.)
+
+git remote add "nomear o servidor" "endereço do repositório git". 
+Ex1.: git remote add origin https://github.com/RichardCardinot/estudos-apirestful.git
+Ex2.: git remote add local D:/Documents/Estudos/Alura/Servidor/       (Servidor local criado com o comando "git init --bare")
+Obs.: "origin" e "local" são nomes que dei aos repositório remotos.
+
+git remote => Lista os repositórios git conhecidos.
+
+git remote -v => Lista os repositórios git conhecidos, mais seus endereços.
+
+git add "conteúdo" => Adiciona o conteúdo para que seja considerado no commit. 
+Usa-se em "conteudo" o nome do arquivo para incluir somente tal arquivo, ou "." para incluir todos os arquivos alterados.)
+
+git clone "endereço do repositório git" => Traz os dados do diretório remoto para a pasta atual. 
+* Usado na primeira vez que baixa o projeto
+Ex.: https://github.com/RichardCardinot/estudos-apirestful.git  (Se colocar o /"nome da pasta" no final, ele clona 
+dentro dessa pasta)
+
+git push "nome do repositório" "nome da branch" => Empurra os dados do remositório local para o repositório remoto.
+Ex1.: git push origin master     ("origin" = nome do repositório, "master" = nome do branch)
+Ex2.: git push local main        ("local" = nome do repositório, "main" = nome do branch)
+
+git remote rename "nome do repositorio" "novo nome do repositorio" = Muda o nome do repositório local 
+de "nome do repositorio remoto" para "novo nome do repositorio remoto".
+Ex.: git remote rename origin local    ("origin" = nome do repositório, "local" = novo nome do repositório)
+
+git pull "nome do repositório" "nome do branch" => Traz os dados do repositório remoto para o branch informado.
+Ex.: git pull origin main  ("origin" = nome do repositório, "main" = nome do branch)
+
+git push -u "nome do repositório" "nome do branch" => Envia os dados da branch "nome do branch" para o 
+repositório "nome do branch". 
+ATENÇÃO: O "-u" serve para dizer que sempre que for dado apenas o "git push" e eu estiver no "nome do branch" informado,
+os dados sejam enviados automaticamente para o repositório informado em "nome do repositório remoto". !!Recomendado não usar!!
+Ex1.[NÃO recomendado]: git push -u origin main     ("origin" = nome do repositório, "main" = nome do branch) 
+Ex2.[SIM recomendado]: git push origin main        ("origin" = nome do repositório, "main" = nome do branch)
+
+****************************************************************
+********************* Dicas de boa prática *********************
+****************************************************************
+
+- Um commit é a forma de salvar um estado ou versão do nosso código;
+
+- Devemos gerar um commit sempre que a nossa base de código está em um estado do qual gostaríamos de nos lembrar. 
+Nunca devemos ter commits de códigos que não funcionam, mas também não é interessante deixar para commitar apenas 
+no final de uma feature.
+
+- Efetuar um commit a cada novo pequeno recurso implatado e a cada bug corrigido.
+
+
+****************************************************************
+********************* Navegar entre pastas *********************
+*********************      pelo console    *********************
+****************************************************************
+
+cd "nome da pasta" => avança de onde está, para a pasta informada após o cd. Obs.: Essa pasta deve está dentro do caminho atual.
+Obs.: Se a pasta tiver nome separado por espaço, devemos colocar o nome da pasta entre aspas (cd "curso alura")
+
+cd .. => Volta uma pasta em relação ao caminho atual.
+
+mkdir "nome da pasta" => cria uma nova pasta no caminho atual, com o nome informado em "nome da pasta".
