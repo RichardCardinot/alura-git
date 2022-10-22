@@ -1,0 +1,10 @@
+clear             => limpa o console;
+git log --oneline => Mostra todos os históricos de commit de forma reduzinha, sendo um commit por linha;
+
+git log -p        => Mostra diversos detalhes do commit, inclusive o que for alterado em cada commit. ** Para 
+sair, digite "q".
+
+.gitignore        => Usado para que o git ignore certo arquivo. Para usar, é necessário criar o arquivo um 
+arquivo de texto com o nome ".gitignore" na pasta onde o git init foi feito. Neste arquivo, deve ser incluídos 
+os nomes dos arquivos a serem ignorados. Se quiser ignorar toda uma pasta, informe no arquivo o nome da pasta
+seguido da barra(/), exemplo: "pasta-teste-git-ignore/".
